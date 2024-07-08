@@ -1,0 +1,36 @@
+.contact form input{
+    display: block;
+    width: 100%;
+    background:  #EBECFE;
+    padding: 15px;
+    border: 0;
+    outline: 0;
+    margin-bottom: 15px;
+    margin-top: 5px;
+    resize: none;
+}
+.contact form{
+    border-radius: .5rem;
+    background-color: var(--white);
+    padding: 2rem;
+    margin: 0 auto;
+    max-width: 50rem;
+  }
+  
+  .contact form .box{
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    border-radius: .5rem;
+    background-color: var(--white);
+    padding: 1.2rem 1.4rem;
+    font-size: 1.7rem;
+    color: var(--black);
+    text-transform: none;
+  
+  }
+  
+  .contact form span{
+    font-size: 1.7rem;
+    color: var(--black);
+  }
