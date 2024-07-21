@@ -11,6 +11,9 @@ nav{
     justify-content: space-between;
     z-index: 10;
 }
+.navbar.scrolled {
+  background: linear-gradient(rgba(164, 41, 41, 0.616),rgba(164, 41, 41, 0.616)); /* Light red background */
+}
 .logo{
     width: 300px;
 }
@@ -23,4 +26,30 @@ nav ul li{
 .dark-nav{
     background: red;
     transition: 0.5s;
+}
+.search-form {
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.search-form input {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+.search-form button {
+  padding: 5px 10px;
+  border: none;
+  background-color: red;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.search-form button:hover {
+  background-color: darkred;
 }
