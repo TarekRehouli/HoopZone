@@ -1,27 +1,39 @@
-import React, { useEffect, useState } from 'react'
-import './Navbar.css'
-import logo from '../../assets/logo2.png'
+import React from 'react';
+import './Navbar.css';
 
-const Navbar = () => {
+const translations = {
+  en: {
+    programs: 'Programs',
+    about: 'About',
+    courts: 'Courts',
+    gym: 'Gym',
+    connect: 'Connect',
+    contact: 'Contact'
+  },
+  fr: {
+    programs: 'Programmes',
+    about: 'À propos',
+    courts: 'Terrains',
+    gym: 'Salle de sport',
+    connect: 'Connecter',
+    contact: 'Contact'
+  }
+};
 
-  const [sticky, setSticky] = useState(false);
-
-  useEffect(()=>{
-    window.addEventListener('scroll',()=>{
-      windowm.scrollY > 50 ? setSticky(true): setSticky(false);
-    })
-  },[]);
+const Navbar = ({ language }) => {
   return (
-    <nav className={`container ${sticky? 'dark-nav' : ''}`}>
-      <img src={logo} alt='' className='logo'/>
+    <nav className="navbar">
+      <a href="#" className="logo">HoopZone</a>
       <ul>
-        <li>HOME</li>
-        <li>COURTS</li>
-        <li>CONNECT</li>
-        <li><button className='btn'>BOOK</button></li>
+        <li><a href="#programs">{translations[language].programs}</a></li>
+        <li><a href="#about">{translations[language].about}</a></li>
+        <li><a href="#courtex">{translations[language].courts}</a></li>
+        <li><a href="#gym">{translations[language].gym}</a></li>
+        <li><a href="#connect">{translations[language].connect}</a></li>
+        <li><a href="#contact">{translations[language].contact}</a></li>
       </ul>
     </nav>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;
