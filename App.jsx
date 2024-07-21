@@ -31,6 +31,7 @@ const translations = {
 
 const App = () => {
   const [language, setLanguage] = useState('en');
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     const savedLanguage = localStorage.getItem('language') || 'en';
@@ -41,30 +42,48 @@ const App = () => {
     setLanguage(lang);
     localStorage.setItem('language', lang);
   };
+  const handleSearch = (query) => {
+    setSearchQuery(query);
+  };
 
   return (
     <div>
-      <div style={{ position: 'fixed', top: '10px', right: '10px', zIndex: '1000' }}>
-        <button style={{ margin: '0 5px', padding: '5px 10px', cursor: 'pointer', backgroundColor: '#fff', border: '1px solid #ccc', borderRadius: '5px' }} onClick={() => handleLanguageChange('en')}>English</button>
-        <button style={{ margin: '0 5px', padding: '5px 10px', cursor: 'pointer', backgroundColor: '#fff', border: '1px solid #ccc', borderRadius: '5px' }} onClick={() => handleLanguageChange('fr')}>Français</button>
+      <div style={{ position: 'fixed', top: '10px', right: '10px', zIndex: '1000', display: 'flex', gap: '5px' }}>
+        <button style={{ padding: '2px 5px', cursor: 'pointer', backgroundColor: '#fff', border: '1px solid #ccc', borderRadius: '3px', fontSize: '10px' }} onClick={() => handleLanguageChange('en')}>EN</button>
+        <button style={{ padding: '2px 5px', cursor: 'pointer', backgroundColor: '#fff', border: '1px solid #ccc', borderRadius: '3px', fontSize: '10px' }} onClick={() => handleLanguageChange('fr')}>FR</button>
       </div>
       <Navbar language={language} />
-      <Hero language={language} />
+      <div id="home">
+          <Hero language={language} />
+        </div>
       <div className="container">
         <FixedIcon language={language} />
         <Title subtitle={translations[language].subtitle1} title={translations[language].title1} />
-        <Programs language={language} />
-        <About language={language} />
-        <Courtex language={language} />
-        <Gym language={language} />
+        <div id="courts">
+          <Programs language={language} />
+        </div>
+        <div>
+          <About language={language} />
+        </div>
+        <div>
+          <Courtex language={language} />
+        </div>
+        <div id="gym">
+          <Gym language={language} />
+        </div>
         <Title subtitle={translations[language].subtitle2} title={translations[language].title2} />
-        <Connect language={language} />
+        <div id="connect">
+          <Connect language={language} />
+        </div>
         <Title subtitle={translations[language].subtitle3} title={translations[language].title3} />
-        <Contact language={language} />
+        <div id="contact">
+          <Contact language={language} />
+        </div>
       </div>
-    </div>
+      </div>
   );
 };
+      
 
 export default App;
 
