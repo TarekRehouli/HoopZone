@@ -44,32 +44,9 @@ const App = () => {
 
   return (
     <div>
-      <style>
-        {`
-          .language-switcher {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            z-index: 1000;
-          }
-
-          .language-switcher button {
-            margin: 0 5px;
-            padding: 5px 10px;
-            cursor: pointer;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-          }
-
-          .language-switcher button:hover {
-            background-color: #f0f0f0;
-          }
-        `}
-      </style>
-      <div className="language-switcher">
-        <button onClick={() => handleLanguageChange('en')}>English</button>
-        <button onClick={() => handleLanguageChange('fr')}>Français</button>
+      <div style={{ position: 'fixed', top: '10px', right: '10px', zIndex: '1000' }}>
+        <button style={{ margin: '0 5px', padding: '5px 10px', cursor: 'pointer', backgroundColor: '#fff', border: '1px solid #ccc', borderRadius: '5px' }} onClick={() => handleLanguageChange('en')}>English</button>
+        <button style={{ margin: '0 5px', padding: '5px 10px', cursor: 'pointer', backgroundColor: '#fff', border: '1px solid #ccc', borderRadius: '5px' }} onClick={() => handleLanguageChange('fr')}>Français</button>
       </div>
       <Navbar language={language} />
       <Hero language={language} />
