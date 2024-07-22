@@ -1,49 +1,47 @@
-import React from 'react'
-import './Programs.css'
-import court_1 from "../../assets/court_1.jpg"
-import court_2 from "../../assets/court_2.jpg"
-import court_3 from "../../assets/court_3.jpg"
-import court_icon from "../../assets/court_icon.png"
+import React from 'react';
+import './Programs.css';
+import court_1 from '../../assets/court_1.jpg';
+import court_2 from '../../assets/court_2.jpg';
+import court_3 from '../../assets/court_3.jpg';
+import court_icon from '../../assets/court_icon.png';
 
 const translations = {
   en: {
-    interior: 'Interior Court',
-    exterior: 'Exterior Court',
-    other: 'Other'
+    programs: [
+      { id: 1, title: 'Interior Court', image: court_1 },
+      { id: 2, title: 'Exterior Court', image: court_2 },
+      { id: 3, title: 'Other', image: court_3 },
+    ],
   },
   fr: {
-    interior: 'Court Intérieur',
-    exterior: 'Court Extérieur',
-    other: 'Autre'
+    programs: [
+      { id: 1, title: 'Court Intérieur', image: court_1 },
+      { id: 2, title: 'Court Extérieur', image: court_2 },
+      { id: 3, title: 'Autre', image: court_3 },
+    ],
   }
 };
 
-const Programs = ({ language }) => {
-  return (
-    <div className='programs'>
-      <div className="program">
-        <img src={court_1} alt="" />
-        <div className="caption">
-          <img src={court_icon} alt="" />
-          <p>{translations[language].interior}</p>
-        </div> 
-      </div> 
-      <div className="program">
-        <img src={court_2} alt="" />
-        <div className="caption">
-          <img src={court_icon} alt="" />
-          <p>{translations[language].exterior}</p>
-        </div>
-      </div> 
-      <div className="program">
-        <img src={court_3} alt="" />
-        <div className="caption">
-          <img src={court_icon} alt="" />
-          <p>{translations[language].other}</p>
-        </div>
-      </div> 
-    </div>
-  )
-}
+const Programs = ({ language, searchQuery }) => {
+  const programs = translations[language].programs;
 
-export default Programs
+  const filteredPrograms = programs.filter(program =>
+    program.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  return (
+    <div className="programs">
+      {filteredPrograms.map(program => (
+        <div key={program.id} className="program">
+          <img src={program.image} alt={program.title} />
+          <div className="caption">
+            <img src={court_icon} alt="court icon" />
+            <p>{program.title}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default Programs;
